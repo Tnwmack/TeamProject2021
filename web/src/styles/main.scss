@@ -1,0 +1,13 @@
+$primary: #004400;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#app {
+    min-height: 100vh;
+}

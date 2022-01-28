@@ -1,0 +1,559 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CorpSiteAPI</name>
+    </assembly>
+    <members>
+        <member name="T:CorpSiteAPI.Controllers.Attributes.ValidateModelStateAttribute">
+            <summary>
+            Model state validation attribute
+            </summary>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Attributes.ValidateModelStateAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Called before the action method is invoked
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:CorpSiteAPI.Controllers.EmployeesController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.EmployeesController.EmployeesGet(System.String[],System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            List all employees
+            </summary>
+            <remarks>Returns all of the employees with filtering and paging.</remarks>
+            <param name="filter">Filtering selection string.</param>
+            <param name="startIndex">The index of the first result that should be returned.</param>
+            <param name="size">The maximum number of items that can be returned.</param>
+            <response code="200">Employee page view.</response>
+            <response code="400">The filtering or paging request was bad.</response>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.EmployeesController.EmployeesIdGet(System.Nullable{System.Int32})">
+            <summary>
+            Get an employee
+            </summary>
+            <param name="id">The id number of the object.</param>
+            <response code="200">Employee data</response>
+            <response code="404">The employee id was not found.</response>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.EmployeesController.EmployeesIdPut(System.Nullable{System.Int32},CorpSiteAPI.Controllers.Models.NewEmployee)">
+            <summary>
+            Add or update an employee
+            </summary>
+            <remarks>Adds a new employee to the database with the given id, or if the employee id already exists it will be modified.</remarks>
+            <param name="id">The id number of the object.</param>
+            <param name="body"></param>
+            <response code="200">Employee data</response>
+            <response code="400">The employee data given was invalid.</response>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.EmployeesController.EmployeesPost(CorpSiteAPI.Controllers.Models.NewEmployee)">
+            <summary>
+            Add a new employee
+            </summary>
+            <remarks>Adds a new employee to the database, a new employee id will be automatically created.</remarks>
+            <param name="body"></param>
+            <response code="200">Employee data</response>
+            <response code="400">The employee data given was invalid.</response>
+        </member>
+        <member name="T:CorpSiteAPI.Controllers.Filters.BasePathFilter">
+            <summary>
+            BasePath Document Filter sets BasePath property of Swagger and removes it from the individual URL paths
+            </summary>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Filters.BasePathFilter.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="basePath">BasePath to remove from Operations</param>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Filters.BasePathFilter.BasePath">
+            <summary>
+            Gets the BasePath of the Swagger Doc
+            </summary>
+            <returns>The BasePath of the Swagger Doc</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Filters.BasePathFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+            Apply the filter
+            </summary>
+            <param name="swaggerDoc">OpenApiDocument</param>
+            <param name="context">FilterContext</param>
+        </member>
+        <member name="T:CorpSiteAPI.Controllers.Filters.GeneratePathParamsValidationFilter">
+            <summary>
+            Path Parameter Validation Rules Filter
+            </summary>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Filters.GeneratePathParamsValidationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="operation">Operation</param>
+            <param name="context">OperationFilterContext</param>
+        </member>
+        <member name="T:CorpSiteAPI.Controllers.Models.Employee">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Employee.Id">
+            <summary>
+            The unique ID of the employee.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Employee.FirstName">
+            <summary>
+            Employee first name.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Employee.LastName">
+            <summary>
+            Employee last name.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Employee.Title">
+            <summary>
+            Job title of the employee.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Employee.Email">
+            <summary>
+            Job title of the employee.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Employee.Bio">
+            <summary>
+            Bio of the employee.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Employee.HireDate">
+            <summary>
+            The date the employee was hired.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Employee.Active">
+            <summary>
+            True if the employee is still active.
+            </summary>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.Employee.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.Employee.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.Employee.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.Employee.Equals(CorpSiteAPI.Controllers.Models.Employee)">
+            <summary>
+            Returns true if Employee instances are equal
+            </summary>
+            <param name="other">Instance of Employee to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.Employee.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:CorpSiteAPI.Controllers.Models.EmployeePage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.EmployeePage.Employees">
+            <summary>
+            List of employees.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.EmployeePage.Total">
+            <summary>
+            The total number of results from the query.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.EmployeePage.Offset">
+            <summary>
+            The offset of the first item in employees from the beginning of the results.
+            </summary>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.EmployeePage.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.EmployeePage.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.EmployeePage.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.EmployeePage.Equals(CorpSiteAPI.Controllers.Models.EmployeePage)">
+            <summary>
+            Returns true if EmployeePage instances are equal
+            </summary>
+            <param name="other">Instance of EmployeePage to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.EmployeePage.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:CorpSiteAPI.Controllers.Models.NewEmployee">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewEmployee.FirstName">
+            <summary>
+            See Employee.FirstName
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewEmployee.LastName">
+            <summary>
+            See Employee.LastName
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewEmployee.Title">
+            <summary>
+            See Employee.Title
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewEmployee.Email">
+            <summary>
+            See Employee.Email
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewEmployee.Bio">
+            <summary>
+            See Employee.Bio
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewEmployee.HireDate">
+            <summary>
+            See Employee.HireDate
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewEmployee.Active">
+            <summary>
+            See Employee.Active
+            </summary>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.NewEmployee.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.NewEmployee.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.NewEmployee.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.NewEmployee.Equals(CorpSiteAPI.Controllers.Models.NewEmployee)">
+            <summary>
+            Returns true if NewEmployee instances are equal
+            </summary>
+            <param name="other">Instance of NewEmployee to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.NewEmployee.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:CorpSiteAPI.Controllers.Models.NewProduct">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewProduct.Name">
+            <summary>
+            See Product.Name
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewProduct.Quantity">
+            <summary>
+            See Product.Quantity
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewProduct.Type">
+            <summary>
+            See Product.Type
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewProduct.ImageLink">
+            <summary>
+            See Product.ImageLink
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewProduct.Description">
+            <summary>
+            See Product.Description
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewProduct.Active">
+            <summary>
+            See Product.Active
+            </summary>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.NewProduct.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.NewProduct.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.NewProduct.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.NewProduct.Equals(CorpSiteAPI.Controllers.Models.NewProduct)">
+            <summary>
+            Returns true if NewProduct instances are equal
+            </summary>
+            <param name="other">Instance of NewProduct to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.NewProduct.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:CorpSiteAPI.Controllers.Models.NewProductImage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.NewProductImage.ProductImage">
+            <summary>
+            See Product.ImageLink for related information.
+            </summary>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.NewProductImage.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="T:CorpSiteAPI.Controllers.Models.Product">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Product.Id">
+            <summary>
+            The unique ID of the product.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Product.Name">
+            <summary>
+            The product name.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Product.Quantity">
+            <summary>
+            Current quantity of the product.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Product.Type">
+            <summary>
+            Product type category.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Product.ImageLink">
+            <summary>
+            Optional link to a product image.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Product.Description">
+            <summary>
+            Optional link to a product image.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.Product.Active">
+            <summary>
+            True if the product is sellable.
+            </summary>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.Product.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.Product.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.Product.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.Product.Equals(CorpSiteAPI.Controllers.Models.Product)">
+            <summary>
+            Returns true if Product instances are equal
+            </summary>
+            <param name="other">Instance of Product to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.Product.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:CorpSiteAPI.Controllers.Models.ProductPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.ProductPage.Products">
+            <summary>
+            List of products.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.ProductPage.Total">
+            <summary>
+            The total number of results from the query.
+            </summary>
+        </member>
+        <member name="P:CorpSiteAPI.Controllers.Models.ProductPage.Offset">
+            <summary>
+            The offset of the first item in products from the beginning of the results.
+            </summary>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.ProductPage.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.ProductPage.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.ProductPage.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.ProductPage.Equals(CorpSiteAPI.Controllers.Models.ProductPage)">
+            <summary>
+            Returns true if ProductPage instances are equal
+            </summary>
+            <param name="other">Instance of ProductPage to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.Models.ProductPage.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:CorpSiteAPI.Controllers.ProductsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.ProductsController.ProductsGet(System.String[],System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            List all products
+            </summary>
+            <remarks>Returns all of the products with filtering and paging.</remarks>
+            <param name="filter">Filtering selection string.</param>
+            <param name="order">List order, formatted like 'column_asc/dec', eg, name_asc</param>
+            <param name="offset">The offset of the first item that should be returned.</param>
+            <param name="size">The maximum number of items that can be returned.</param>
+            <response code="200">Product page view.</response>
+            <response code="400">The filtering or paging request was bad.</response>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.ProductsController.ProductsIdGet(System.Nullable{System.Int32})">
+            <summary>
+            Get a product
+            </summary>
+            <param name="id">The id number of the object.</param>
+            <response code="200">Product data</response>
+            <response code="404">The product id was not found.</response>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.ProductsController.ProductsIdPut(System.Nullable{System.Int32},CorpSiteAPI.Controllers.Models.NewProduct)">
+            <summary>
+            Add or update a product
+            </summary>
+            <remarks>Adds a new product to the database with the given id, or if the product id already exists it will be modified.</remarks>
+            <param name="id">The id number of the object.</param>
+            <param name="body"></param>
+            <response code="200">Product data</response>
+            <response code="400">The product data given was invalid.</response>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.ProductsController.ProductsPost(CorpSiteAPI.Controllers.Models.NewProduct)">
+            <summary>
+            Add a new product
+            </summary>
+            <remarks>Adds a new product to the database, a new product id will be automatically created.</remarks>
+            <param name="body"></param>
+            <response code="200">Product data</response>
+            <response code="400">The product data given was invalid.</response>
+        </member>
+        <member name="M:CorpSiteAPI.Controllers.ProductsController.ProductsImagePost(CorpSiteAPI.Controllers.Models.NewProductImage)">
+            <summary>
+            Add a new product image to the static image storage
+            </summary>
+            <remarks>Adds a new product image to the temp folder, returns an image link.</remarks>
+            <param name="body"></param>
+            <response code="200">Product Image Link</response>
+            <response code="400">The product image file given was invalid.</response>
+        </member>
+    </members>
+</doc>
